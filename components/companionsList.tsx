@@ -14,7 +14,7 @@ interface companionsListProps {
 const CompanionsList = ({ title, companions, classNames } : companionsListProps ) => {
     return (
         <article className={cn('componion-list', classNames)} style={{ border: "2px solid black", padding: 18, borderRadius: 18}}>
-            <h2 className="font-bold text-2xl">Recently completed lessons</h2>
+            <h2 className="font-bold text-2xl">{title}</h2>
             <Table>
                 <TableHeader>
                     <TableRow>

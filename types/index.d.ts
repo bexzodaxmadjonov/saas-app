@@ -76,8 +76,10 @@ interface CompanionComponentProps {
   subject: string;
   topic: string;
   name: string;
-  userName: string;
+  username: string;
   userImage: string;
   voice: string;
   style: string;
+  duration: number;
+  title: string;
 }
