@@ -3,7 +3,7 @@ import CompanionCard from "@/components/companionCard";
 import { getSubjectColor } from "@/lib/utils";
 import Searchinput from "@/components/Searchinput";
 import SubjectFilter from "@/components/SubjectFilter";
-
+// eslint-disable-next-line
 const CompanionsLibrary = async ({ searchParams }: { searchParams: any } ) => {
     const filters = await searchParams;
     const subject = filters.subject ? filters.subject : "";

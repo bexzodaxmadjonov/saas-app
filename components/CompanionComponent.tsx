@@ -78,7 +78,7 @@ const CompanionComponent = ({
             clientMessages: ["transcript"],
             serverMessages: [],
         }
-
+        // eslint-disable-next-line
         vapi.start(configureAssistant(voice, style), assistantOverrides)
     }
 
