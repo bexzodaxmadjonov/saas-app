@@ -1,8 +1,10 @@
 import React from 'react'
+// eslint-disable-next-line
 import { Button } from "@/components/ui/button";
 import CompanionCard from "@/components/companionCard";
 import CompanionsList from "@/components/companionsList";
 import Cta from "@/components/CTA";
+// eslint-disable-next-line
 import { recentSessions } from "@/constants";
 import {getAllCompanions, getRecentHistory} from "@/lib/actions/companion.actions";
 import {getSubjectColor} from "@/lib/utils";

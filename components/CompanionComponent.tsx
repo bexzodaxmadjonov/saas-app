@@ -19,8 +19,6 @@ const CompanionComponent = ({
                                 companionId,
                                 name,
                                 topic,
-                                title,
-                                duration,
                                 subject,
                                 username,
                                 userImage,
