@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getAllCompanions } from "@/lib/actions/companion.actions";
 import CompanionCard from "@/components/companionCard";
 import { getSubjectColor } from "@/lib/utils";

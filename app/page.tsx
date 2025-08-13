@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from 'react'
 // eslint-disable-next-line
 import { Button } from "@/components/ui/button";

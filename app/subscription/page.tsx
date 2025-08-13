@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { PricingTable } from "@clerk/nextjs";
 
 const Page = () => {
