@@ -11,7 +11,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Gaply",
+  title: "Gapchi",
   description: "Real-time AI Teaching Platform",
 };
 

@@ -1,80 +1,79 @@
-import { Table, TableBody, TableFooter, TableHead, TableRow,
-TableCell, TableHeader, TableCaption} from "@/components/ui/table";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import Image from "next/image";
-import { getSubjectColor } from "@/lib/utils";
+import { Table, TableBody, TableHead, TableRow, TableCell, TableHeader } from "@/components/ui/table"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
+import Image from "next/image"
+import { getSubjectColor } from "@/lib/utils"
+import { Clock, Play } from "lucide-react"
+import type { Companion } from "@/types"
 
-interface companionsListProps {
-    title: string,
-    companions?: Companion[],
-    classNames: string,
+interface CompanionsListProps {
+    title: string
+    companions?: Companion[]
+    classNames?: string
 }
 
-const CompanionsList = ({ title, companions, classNames } : companionsListProps ) => {
+const CompanionsList = ({ title, companions, classNames }: CompanionsListProps) => {
     return (
-        <article className={cn('componion-list', classNames)} style={{ border: "2px solid black", padding: 18, borderRadius: 18}}>
-            <h2 className="font-bold text-2xl">{title}</h2>
+        <div className={cn("bg-white rounded-2xl shadow-lg overflow-hidden", classNames)}>
+            <div className="p-6 border-b border-slate-100">
+                <h2 className="font-bold text-2xl text-slate-900">{title}</h2>
+            </div>
+
             <Table>
                 <TableHeader>
-                    <TableRow>
-                        <TableHead className="w-2/3 text-lg">Lessons</TableHead>
-                        <TableHead className="text-lg">Subject</TableHead>
-                        <TableHead className="text-lg text-right">Duration</TableHead>
+                    <TableRow className="border-slate-100">
+                        <TableHead className="text-slate-600 font-medium">Companion</TableHead>
+                        <TableHead className="text-slate-600 font-medium">Subject</TableHead>
+                        <TableHead className="text-slate-600 font-medium text-right">Duration</TableHead>
+                        <TableHead className="w-20"></TableHead>
                     </TableRow>
                 </TableHeader>
-                <TableBody className="gap-8">
+                <TableBody>
                     {companions?.map((companion) => (
-                        <TableRow key={companion.id}>
+                        <TableRow key={companion.id} className="border-slate-100 hover:bg-slate-50 transition-colors">
+                            <TableCell className="py-4">
+                                <div className="flex items-center gap-4">
+                                    <div
+                                        className="w-12 h-12 flex items-center justify-center rounded-xl shadow-sm"
+                                        style={{ backgroundColor: getSubjectColor(companion.subject) }}
+                                    >
+                                        <Image
+                                            src={`/icons/${companion.subject}.svg`}
+                                            alt={companion.subject}
+                                            width={24}
+                                            height={24}
+                                        />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-slate-900">{companion.name}</h3>
+                                        <p className="text-sm text-slate-500">Topic: {companion.topic}</p>
+                                    </div>
+                                </div>
+                            </TableCell>
+                            <TableCell>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 capitalize">
+                  {companion.subject}
+                </span>
+                            </TableCell>
+                            <TableCell className="text-right">
+                                <div className="flex items-center justify-end gap-1 text-slate-600">
+                                    <Clock className="w-4 h-4" />
+                                    <span>{companion.duration} min</span>
+                                </div>
+                            </TableCell>
                             <TableCell>
                                 <Link href={`/companions/${companion.id}`}>
-                                    <div className="flex items-center gap-2">
-                                        <div className="size-[72px] flex items-center justify-center rounded-lg max-md:hidden"
-                                        style={{ backgroundColor: getSubjectColor(companion.subject)}}>
-                                            <Image
-                                                src={`/icons/${companion.subject}.svg`}
-                                                alt={companion.subject}
-                                                width={35}
-                                                height={35}
-                                            />
-                                        </div>
-                                        <div className="flex-col">
-                                            <h2 className="text-lg font-bold">{companion.name}</h2>
-                                            <p className="text-sm">Topic: {companion.topic}</p>
-                                        </div>
-                                    </div>
+                                    <button className="flex items-center justify-center cursor-pointer w-10 h-10 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full transition-colors">
+                                        <Play className="w-4 h-4 ml-0.5" />
+                                    </button>
                                 </Link>
-                            </TableCell>
-                            <TableCell>
-                                <button className="btn-primary w-fit max-md:hidden">{companion.subject}</button>
-                                <div className="flex size-[50px] items-center justify-center rounded-lg p-2 md:hidden"
-                                style={{ backgroundColor: getSubjectColor(companion.subject)}}>
-                                    <Image
-                                        src={`/icons/${companion.subject}.svg`}
-                                        alt={companion.subject}
-                                        width={20}
-                                        height={20}
-                                    />
-                                </div>
-                            </TableCell>
-                            <TableCell className="text-right items-center">
-                                <h2 className="text-lg max-md:hidden">{companion.duration} mins</h2>
-                                <div className="flex size-[50px] items-center justify-center rounded-lg gap-1 md:hidden">
-                                    <h2 className="text-lg">{companion.duration}</h2>
-                                    <Image
-                                        src={`/icons/clock.svg`}
-                                        alt={companion.subject}
-                                        width={20}
-                                        height={20}
-                                    />
-                                </div>
                             </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
-        </article>
+        </div>
     )
 }
 
-export default CompanionsList;
+export default CompanionsList

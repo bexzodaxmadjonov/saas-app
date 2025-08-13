@@ -1,15 +1,9 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import Image from "next/image";
-import NavItems from "@/components/NavItems";
-import {
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import Link from "next/link"
+import Image from "next/image"
+import NavItems from "@/components/NavItems"
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 const Page = () => {
     return (
@@ -17,7 +11,7 @@ const Page = () => {
             <div className="flex items-center gap-4">
                 <Link href="/">
                     <div className="flex items-center gap-2.5 cursor-pointer">
-                        <Image src="/images/logo.png" alt="logo" width={90} height={90} />
+                        <Image src="/images/gapchi.png" alt="logo" width={90} height={90} />
                     </div>
                 </Link>
 
@@ -42,4 +36,4 @@ const Page = () => {
     )
 }
 
-export default Page;
+export default Page

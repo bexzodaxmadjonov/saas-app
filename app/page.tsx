@@ -8,7 +8,7 @@ import {getAllCompanions, getRecentHistory} from "@/lib/actions/companion.action
 import {getSubjectColor} from "@/lib/utils";
 
 const Page = async () => {
-    const companions = await getAllCompanions({ limit: 3});
+    const companions = await getAllCompanions({ limit: 5});
     const recentSessionsCompanions = await getRecentHistory(10)
   return (
     <main>

@@ -83,3 +83,10 @@ interface CompanionComponentProps {
   duration: number;
   title: string;
 }
+
+export interface Message {
+  type: string
+  transcriptType?: string
+  role: "user" | "assistant"
+  transcript: string
+}
