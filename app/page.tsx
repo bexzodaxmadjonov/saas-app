@@ -6,12 +6,12 @@ import CompanionsList from "@/components/companionsList";
 import Cta from "@/components/CTA";
 // eslint-disable-next-line
 import { recentSessions } from "@/constants";
-import {getAllCompanions, getRecentHistory} from "@/lib/actions/companion.actions";
+import {getAllCompanions, getRecentSessions} from "@/lib/actions/companion.actions";
 import {getSubjectColor} from "@/lib/utils";
 
 const Page = async () => {
     const companions = await getAllCompanions({ limit: 5});
-    const recentSessionsCompanions = await getRecentHistory(10)
+    const recentSessionsCompanions = await getRecentSessions(10)
   return (
     <main>
       <h1 className="text-2xl">Popular Companions</h1>

@@ -79,7 +79,7 @@ const CompanionComponent = ({
             serverMessages: [],
         }
         // eslint-disable-next-line
-        vapi.start(configureAssistant(voice, style), assistantOverrides)
+        vapi.start(configureAssistant(voice, style), assistantOverrides as any)
     }
 
     const handleDisconnect = () => {
